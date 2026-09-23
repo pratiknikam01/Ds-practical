@@ -2,7 +2,6 @@
 #include <string>
 using namespace std;
 
-// Node for linked list
 struct Node {
     string request;
     Node* next;
@@ -13,20 +12,17 @@ struct Node {
     }
 };
 
-// Queue using linked list
 class LinkedQueue {
 private:
     Node* front;
     Node* rear;
 
 public:
-    // Constructor
     LinkedQueue() {
         front = NULL;
         rear = NULL;
     }
 
-    // Enqueue: Add request at the rear
     void enqueue(string request) {
         Node* newNode = new Node(request);
 
@@ -40,7 +36,6 @@ public:
         cout << "Request added: " << request << endl;
     }
 
-    // Dequeue: Remove request from the front
     void dequeue() {
         if (front == NULL) {
             cout << "Queue is empty!" << endl;
@@ -60,7 +55,7 @@ public:
         delete temp;
     }
 
-    // Display all requests
+
     void display() {
         if (front == NULL) {
             cout << "Queue is empty!" << endl;
@@ -77,7 +72,6 @@ public:
         }
     }
 
-    // Destructor
     ~LinkedQueue() {
         while (front != NULL) {
             Node* temp = front;
@@ -91,21 +85,17 @@ public:
 int main() {
     LinkedQueue ticketQueue;
 
-    // Enqueue reservation requests
     ticketQueue.enqueue("Reservation for Rahul - Train 101");
     ticketQueue.enqueue("Reservation for Priya - Train 102");
     ticketQueue.enqueue("Reservation for Amit - Train 103");
     ticketQueue.enqueue("Reservation for Sneha - Train 104");
 
-    // Display queue
     ticketQueue.display();
 
-    // Dequeue requests
     cout << "\nProcessing requests:\n";
     ticketQueue.dequeue();
     ticketQueue.dequeue();
 
-    // Display remaining requests
     ticketQueue.display();
 
     return 0;
